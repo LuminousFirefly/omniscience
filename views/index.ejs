@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link type="stylesheet" href="styles/main.css"/> -->
+    <style>
+    .body {
+    background-color: blue;
+    }
+
+    /* form {
+        display:flex; 
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+    }  */
+
+    .container {
+    display:flex; 
+    justify-content: center;
+    height:100vh; 
+    align-items: center;
+    }
+
+    .form {
+        display:flex; 
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+        gap:11px;
+    }
+
+    a {
+        text-decoration:none; 
+        color:burlywood; 
+    }
+
+   
+    
+
+    .input {
+    text-align: center;
+    }
+
+    h3 {
+    color:burlywood; 
+    text-align: center;
+    }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class = "mini">
+            
+            <form id="f" method="post">
+                    
+                <div class="form">
+
+                    <div id="type">
+                    <label for="userInput">Response Type: </label>
+                    <select id="cars" name="utype">
+                    <option value="text" form="f">Text Response</option>
+                    <option value="img">Image Response</option>
+                    </select>
+                    </div>
+
+                
+                    <div id="content">
+                <label for="userInput">Input: </label>
+                <input type="text" id="uinp" name="uinp">
+                    </div>
+        
+                    <div id="submit">
+                <label for="submit"></label>
+                <input id="get" type="submit" value="Submit" formaction="/res">
+                    </div>
+                </div>
+
+            </form>
+        
+        
+        
+            <div class="response">
+        <h3>
+            <% if(!locals.resp && !locals.imgurl) { %>
+            Waiting for data...
+            <% } else if (locals.resp){ %>
+            <a href="/text/response.txt" download="response.txt">
+            <%= resp %>
+            </a>
+            <% } else if (locals.imgurl) {%>
+                <!-- <img src="" alt="Generated Image" width="200px" height="200px"> -->
+    
+                <a href="/images/<%=inp%>.jpg" download="<%=inp%>.jpg">
+                <img src="/images/<%=inp%>.jpg" alt="Trying to access: /Users/theluminousfirefly/Desktop/Passions/Coding_Projects/Web_Development/Back-End/Capstone Project 2/public/images/inp.jpg" width="200px" height="200px"> 
+                </a>
+
+                <!-- Note that the anchor href is WRT the public folder (within .ejs), but the file-writing process in index.js involves the path WRT root directory! -->
+
+            <% } %>
+        </h3>
+            </div>
+        </div>
+        
+    </div>
+       
+    
+</body>
+</html>
+
+

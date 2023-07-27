@@ -1,0 +1,23 @@
+.body {
+    background-color: blue;
+}
+
+
+.container {
+    display:grid; 
+    
+
+}
+
+.form {
+    text-align: center;
+}
+
+.input {
+    text-align: center;
+}
+
+h2 {
+    color:burlywood; 
+    text-align: center;
+}
